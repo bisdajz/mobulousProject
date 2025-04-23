@@ -10,11 +10,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Bubbl {
+
+	private static final String actions = null;
 
 	public static void main(String[] args) throws InterruptedException {
 		 WebDriver driver = new ChromeDriver();
@@ -129,5 +132,18 @@ public class Bubbl {
 	     
 	     WebElement logo=driver.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/figure/a/img"));
 	     logo.click();  
+	     
+	     Actions actions = new Actions(driver);
+	     WebElement profile = driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/ul/li[1]/a/img"));
+	        actions.moveToElement(profile).perform();
+	        System.out.println("✅ Hovered over profile");
+
+	        // Wait a bit 
+	        Thread.sleep(3000);
+
+	        
+	        WebElement notification = driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/ul/li[2]/a/img"));
+	        actions.moveToElement(notification).perform();
+	        System.out.println("✅ Hovered over notifications");
          }
   }
