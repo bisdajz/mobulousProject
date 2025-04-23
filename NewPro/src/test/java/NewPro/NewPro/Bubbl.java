@@ -43,9 +43,9 @@ public class Bubbl {
 	  	 WebElement emailField = driver.findElement(By.xpath("/html/body/div/div/div[2]/form/div[1]/input"));
 	     WebElement passwordField = driver.findElement(By.xpath("/html/body/div/div/div[2]/form/div[2]/input"));
 	     // Send keys to the email field
-	     emailField.sendKeys("joly@getnada.com");
-	     // Send keys to the password fieldO
-	     passwordField.sendKeys("Qwerty@123");   
+	     emailField.sendKeys("emee@getnada.com");
+	     // Send keys to the password field
+	     passwordField.sendKeys("Qwerty@12");   
 	     Thread.sleep(2000);
 	     WebElement loginbutton=driver.findElement(By.xpath("/html/body/div/div/div[2]/form/button"));
 	     loginbutton.click(); 
@@ -104,6 +104,30 @@ public class Bubbl {
                          Thread.currentThread().interrupt();
                      }
               }
-}
+                
+     }
+         WebElement mycars=driver.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/ul/li[2]/a"));
+	     mycars.click(); 
+	     try {
+	            
+	            WebElement addCarbutton = driver.findElement(By.xpath("/html/body/div/div/div[3]/a"));
+
+	            // Check if it's displayed
+	            if (addCarbutton.isDisplayed()) {
+	                System.out.println("✅ Button is visible on the page.");
+	            } else {
+	                System.out.println("❌ Button is NOT visible on the page.");
+	            }
+	        } catch (Exception e) {
+	            System.out.println("⚠️ Button not found or not visible.");
+	        }
+
+	     WebElement addCar=driver.findElement(By.xpath("/html/body/div/div/div[3]/a"));
+	     addCar.click(); 
+	     
+	     Thread.sleep(5000);
+	     
+	     WebElement logo=driver.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/figure/a/img"));
+	     logo.click();  
          }
   }
